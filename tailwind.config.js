@@ -139,6 +139,15 @@ export default {
         'medium': '0 8px 30px rgba(0, 0, 0, 0.12)',
         'strong': '0 15px 40px rgba(0, 0, 0, 0.15)',
         'glow': '0 0 40px rgba(79, 70, 229, 0.15)',
+      },
+      screens: {
+        'xs': '475px',
+        '3xl': '1600px',
+      },
+      spacing: {
+        '5%': '5%',
+        '10%': '10%',
+        '15%': '15%',
       }
     },
   },
