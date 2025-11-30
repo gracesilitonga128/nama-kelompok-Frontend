@@ -1,3 +1,4 @@
+// src/components/layout/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
@@ -37,8 +38,8 @@ const Navbar = () => {
     { name: 'Beranda', href: '/', type: 'link' },
     { name: 'Fitur', href: '/features', type: 'link' },
     { name: 'Artikel', href: '/articles', type: 'link' },
-    { name: 'Kuis', href: '/quiz', type: 'link' }, // NAVIGASI KUIS
-    { name: 'Event', href: '/events', type: 'link' }
+    { name: 'Kuis', href: '/quiz', type: 'link' },
+    { name: 'Event', href: '/events', type: 'link' } // ✅ NAVIGASI EVENTS
   ];
 
   const handleLogout = () => {
@@ -94,6 +95,14 @@ const Navbar = () => {
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                      </span>
+                    </span>
+                  )}
+                  {item.name === 'Event' && (
+                    <span className="absolute -top-1 -right-2">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                       </span>
                     </span>
                   )}
@@ -184,7 +193,7 @@ const Navbar = () => {
                         Fitur
                       </Link>
 
-                      {/* TAMBAHAN: Link Kuis di Dropdown */}
+                      {/* Link Kuis di Dropdown */}
                       <Link
                         to="/quiz"
                         onClick={() => setProfileDropdownOpen(false)}
@@ -194,6 +203,18 @@ const Navbar = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                         Kuis & Tantangan
+                      </Link>
+
+                      {/* ✅ TAMBAHAN: Link Events di Dropdown */}
+                      <Link
+                        to="/events"
+                        onClick={() => setProfileDropdownOpen(false)}
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-purple-700 hover:bg-purple-50 transition-colors border-l-2 border-purple-400 ml-2"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Event & Kegiatan
                       </Link>
                       
                       <div className="border-t border-gray-100 my-1"></div>
@@ -273,6 +294,12 @@ const Navbar = () => {
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                       </span>
                     )}
+                    {item.name === 'Event' && (
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                      </span>
+                    )}
                   </Link>
                 ) : (
                   <button
@@ -331,7 +358,7 @@ const Navbar = () => {
                     Fitur
                   </Link>
                   
-                  {/* TAMBAHAN: Link Kuis di Mobile Menu */}
+                  {/* Link Kuis di Mobile Menu */}
                   <Link
                     to="/quiz"
                     className="flex items-center gap-3 px-2 py-2 text-amber-700 hover:text-amber-800 transition-colors bg-amber-50 rounded-lg mx-2"
@@ -341,6 +368,18 @@ const Navbar = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                     Kuis & Tantangan
+                  </Link>
+                  
+                  {/* ✅ TAMBAHAN: Link Events di Mobile Menu */}
+                  <Link
+                    to="/events"
+                    className="flex items-center gap-3 px-2 py-2 text-purple-700 hover:text-purple-800 transition-colors bg-purple-50 rounded-lg mx-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Event & Kegiatan
                   </Link>
                   
                   <button

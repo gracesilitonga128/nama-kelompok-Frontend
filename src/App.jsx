@@ -14,19 +14,9 @@ import ArticleDetail from './pages/ArticleDetail';
 import Profile from './pages/Profile';
 import Features from './pages/Features';
 import Quiz from './pages/Quiz';
+import Events from './pages/Events'; // ✅ IMPORT EVENTS
 import ProgressDashboard from './components/quiz/ProgressDashboard';
 import './index.css';
-
-// Placeholder components untuk halaman yang belum ada
-const Events = () => (
-  <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-    <div className="text-center">
-      <div className="text-6xl mb-4">🎪</div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-2">Events Page</h1>
-      <p className="text-gray-600">Coming Soon - Halaman event akan segera hadir!</p>
-    </div>
-  </div>
-);
 
 function App() {
   return (
@@ -41,6 +31,7 @@ function App() {
               <Route path="/articles" element={<Articles />} />
               <Route path="/articles/:id" element={<ArticleDetail />} />
               <Route path="/quiz" element={<Quiz />} />
+              <Route path="/events" element={<Events />} /> {/* ✅ ROUTE EVENTS */}
               
               {/* Auth Routes - Hanya untuk guest */}
               <Route 
@@ -93,9 +84,6 @@ function App() {
                   </ProtectedRoute>
                 } 
               />
-              
-              {/* Coming Soon Routes */}
-              <Route path="/events" element={<Events />} />
               
               {/* 404 Route */}
               <Route path="*" element={
